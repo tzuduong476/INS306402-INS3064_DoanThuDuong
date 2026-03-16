@@ -39,22 +39,12 @@ This draft serves as the blueprint for creating the SQL schema.
 
 ## Part 2: Relationships
 
-**1. AUTHOR - BOOK**
-* **Relationship Type:** One-to-Many (1:N)
-* **FK Location:** Book table
+**Authors to Books:** Many-to-Many (N:N). An author can write multiple books, and a single book can be co-authored by several people. Therefore, a junction table is needed to connect them.
 
-**2. CITIZEN - PASSPORT**
-* **Relationship Type:** One-to-One (1:1)
-* **FK Location:** Passport table
+**Citizens to Passports:** One-to-Many (1:N). A citizen may hold multiple passports (e.g., in cases of dual citizenship), but each physical passport is strictly issued to exactly one citizen. The foreign key is placed in the Passports table.
 
-**3. CUSTOMER - ORDER**
-* **Relationship Type:** One-to-Many (1:N)
-* **FK Location:** Order table
+**Customers to Orders:** One-to-Many (1:N). A customer can place numerous orders over time, yet each specific order belongs to only one customer. The foreign key belongs in the Orders table.
 
-**4. STUDENT - CLASS**
-* **Relationship Type:** Many-to-Many (N:N)
-* **FK Location:** Junction table
+**Students to Classes:** Many-to-Many (N:N). A student can enroll in various classes, and a single class accommodates multiple students. This relationship requires a bridge table to store the foreign keys.
 
-**5. TEAM - PLAYER**
-* **Relationship Type:** One-to-Many (1:N)
-* **FK Location:** Player table
+**Teams to Players:** One-to-Many (1:N). A team consists of many players, but an individual player typically plays for exactly one team at a given time. The foreign key must be stored in the Players table.
